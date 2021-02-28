@@ -1,0 +1,92 @@
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!DOCTYPE html>
+
+<html lang="ja"> 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+<!-- staticフォルダのcssファイル反映 -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!-- Font Awesome用の貼り付け -->
+<script src="https://kit.fontawesome.com/bed1143368.js" crossorigin="anonymous"></script>
+
+
+<title>Neural Artwork</title>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                
+                <div class="nav-border-line">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="{% url 'art-home' %}">Neural Artworks</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav mr-auto ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'art-create' %}">アート作成 <span class="sr-only">(current)</span></a>
+                            </li>
+                            </ul>
+                            
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-12">
+
+                <div class="scrollmenu">
+                        <a href="{% url 'art-home' %}">Home</a>
+                        <a href="{% url 'art-category' action='UDNIE' %}">Udnie</a>
+                        <a href="{% url 'art-category' action='CANDY' %}">Candy</a>
+                        <a href="{% url 'art-category' action='MOSAIC' %}">Mosaic</a>
+                        <a href="{% url 'art-category' action='PINK' %}">Pink</a>
+                        <a href="{% url 'art-category' action='SCREAM' %}">Scream</a>
+                        <a href="{% url 'art-category' action='LA_MUSE' %}">La Muse</a>
+                        <a href="{% url 'art-category' action='FIRE' %}">Fire</a>
+                        <a href="{% url 'art-category' action='FLAME' %}">Flame</a>
+                        <a href="{% url 'art-category' action='RAIN' %}">Rain</a>
+                        <a href="{% url 'art-category' action='LANDSCAPE' %}">Landscape</a>
+                        <a href="{% url 'art-category' action='GOLD_BLACK' %}">Gold Black</a>
+                        <a href="{% url 'art-category' action='TRIANGLE' %}">Triangle</a>
+                        <a href="{% url 'art-category' action='STARRY_NIGHT' %}">Starry Night</a>
+                        <a href="{% url 'art-category' action='WAVE' %}">Wave</a>
+                        <a href="{% url 'art-category' action='FEATHERS' %}">Feathers</a>
+                </div>
+        
+            </div>
+
+            <div class="col-md-10 col-sm-12">
+
+            {% block content %}
+
+            {% endblock %}
+
+            </div>
+
+            <div class="col-md-0 col-sm-0">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
