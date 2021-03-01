@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #own
+    'django_cleanup.apps.CleanupConfig',
     'arts',
     'crispy_forms',
 ]
