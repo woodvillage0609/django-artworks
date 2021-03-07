@@ -40,8 +40,10 @@ class ArtsListView(ListView):
             'arts_goldblack': Arts.objects.filter(action='GOLD_BLACK').order_by('-date'),
             'arts_triangle': Arts.objects.filter(action='TRIANGLE').order_by('-date'),
             'arts_starrynight': Arts.objects.filter(action='STARRY_NIGHT').order_by('-date'),
+            'arts_starrynight2':Arts.objects.filter(action='STARRY_NIGHT_2500').order_by('-date'),
             'arts_wave': Arts.objects.filter(action='WAVE').order_by('-date'),
             'arts_feathers': Arts.objects.filter(action='FEATHERS').order_by('-date'),
+            'arts_compostion': Arts.objects.filter(action='COMPOSITION').order_by('-date'),
         })
         return context
 

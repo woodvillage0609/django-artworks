@@ -11,6 +11,8 @@ opencv-python = "*"
 imutils = "*"
 django-bootstrap4 = "*"
 django-cleanup = "*"
+django-storages = "*"
+boto3 = "*"
 
 [dev-packages]
 

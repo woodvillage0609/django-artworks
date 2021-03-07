@@ -51,10 +51,14 @@ def neuralStyleTransfer(image, action):
 		net = cv2.dnn.readNetFromTorch(target + 'triangle_style_1000.t7')
 	elif action == 'STARRY_NIGHT':
 		net = cv2.dnn.readNetFromTorch(target + 'starry_night.t7')
+	elif action == 'STARRY_NIGHT_2500':
+		net = cv2.dnn.readNetFromTorch(target + 'starry_night_2500.t7')
 	elif action == 'WAVE':
 		net = cv2.dnn.readNetFromTorch(target + 'the_wave.t7')
 	elif action == 'FEATHERS':
 		net = cv2.dnn.readNetFromTorch(target + 'feathers.t7')
+	elif action == 'COMPOSITION':
+		net = cv2.dnn.readNetFromTorch(target + 'composition_vii.t7')
 
 	# load the input image, resize it to have a width of 600 pixels, and
 	# then grab the image dimensions
