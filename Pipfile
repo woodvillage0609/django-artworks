@@ -13,6 +13,12 @@ django-bootstrap4 = "*"
 django-cleanup = "*"
 django-storages = "*"
 boto3 = "*"
+django-heroku = "*"
+gunicorn = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
