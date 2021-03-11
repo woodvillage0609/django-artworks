@@ -16,19 +16,19 @@ ACTION_CHOICES = (
     ('CANDY', 'Candy'),
     ('MOSAIC', 'Mosaic'),
     ('PINK', 'Pink'),
-    ('SCREAM', 'Scream'),
+    # ('SCREAM', 'Scream'),
     ('LA_MUSE', 'La Muse'),
-    ('FIRE', 'Fire'),
-    ('FLAME', 'Flame'),
+    # ('FIRE', 'Fire'),
+    # ('FLAME', 'Flame'),
     ('RAIN', 'Rain'),
     ('LANDSCAPE', 'Landscape'),
-    ('GOLD_BLACK', 'Gold Black'),
+    # ('GOLD_BLACK', 'Gold Black'),
     ('TRIANGLE', 'Triangle'),
-    ('STARRY_NIGHT', 'Starry Night'),
-    ('STARRY_NIGHT_2500', 'Starry Night2'),
-    ('WAVE', 'Wave'),
-    ('FEATHERS', 'Feathers'),
-    ('COMPOSITION', 'Composition')
+    # ('STARRY_NIGHT', 'Starry Night'),
+    # ('STARRY_NIGHT_2500', 'Starry Night2'),
+    # ('WAVE', 'Wave'),
+    # ('FEATHERS', 'Feathers'),
+    # ('COMPOSITION', 'Composition')
 
 )
 
