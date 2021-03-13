@@ -58,9 +58,13 @@ class Arts(models.Model):
         im_pil = Image.fromarray(img)
         # im_pil = Image.fromarray((img * 255).astype(np.uint8))
 
+        #圧縮クオリティ
+        COMPRESS_QUALITY = 10
+
         # save
         buffer = BytesIO()
-        im_pil.save(buffer, format='png')
+        
+        im_pil.save(buffer, format='png', quality = COMPRESS_QUALITY)
         image_png = buffer.getvalue()
 
         self.image.save(str(self.image), ContentFile(image_png), save=False)
