@@ -11,6 +11,7 @@ from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
+    DeleteView,
     )
 from .models import Arts
 from .forms import ArtsForm
@@ -64,6 +65,20 @@ class ArtsCreateView(CreateView):
             form.save()
         else:
             return render(request, self.template_name, {'form':form},)
+
+
+class ArtsDeleteView(DeleteView):
+    model = Arts
+    template_name = 'arts/art_confirm_delete.html'
+    form_class = ArtsForm
+    success_url = '/'
+
+    #Updateと同様にログインユーザーしか削除できないようにする。
+    # def test_func(self): 
+    #     post = self.get_object()
+    #     if self.request.user == post.author:
+    #         return True
+    #     return False
         
 
 class CategoryView(ListView):

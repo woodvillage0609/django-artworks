@@ -7,4 +7,5 @@ urlpatterns = [
     path('art/<int:pk>', views.ArtsDetailView.as_view(), name='art-detail'),
     path('art/new/', views.ArtsCreateView.as_view(), name='art-create'), 
     path('art/category/<str:action>/', views.CategoryView.as_view(), name='art-category'),
+    path('art/<int:pk>/delete/', views.ArtsDeleteView.as_view(), name = 'art-delete'), 
 ]
