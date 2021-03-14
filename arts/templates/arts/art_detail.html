@@ -2,14 +2,19 @@
 
 {% block content %}
 
-<div class="art-detail">
+<div class="row">
+<div class="col-md-1 col-sm-0"></div>
+<div class="col-md-10 col-sm-12">
+    <div class="art-detail">
+        <br>
+        <img src="{{MEDIA_URL}}{{object.image}}" style="width:100%;"></li>
+        <br>
+        <li><a href="{% url 'art-delete' object.id %}" class="grey">Delete</a></li>
+    </div>  
+</div>
 
-    <br>
-    <img src="{{MEDIA_URL}}{{object.image}}" style="width:100%;">
+<div class="col-md-1 col-sm-0"></div>
 
-    <br>
-    <a href="{% url 'art-delete' object.id %}">Delete</a>
-    
 </div>
 
  {% endblock %}

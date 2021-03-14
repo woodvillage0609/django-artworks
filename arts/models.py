@@ -59,7 +59,7 @@ class Arts(models.Model):
         # im_pil = Image.fromarray((img * 255).astype(np.uint8))
 
         #圧縮クオリティ
-        COMPRESS_QUALITY = 10
+        COMPRESS_QUALITY = 80
 
         # save
         buffer = BytesIO()
