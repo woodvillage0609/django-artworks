@@ -15,7 +15,8 @@ from django.views.generic import (
     )
 from .models import Arts
 from .forms import ArtsForm
-# Create your views here.
+#ログインしていないと、create/update/deleteできない様にする
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class ArtsListView(ListView):
@@ -55,7 +56,7 @@ class ArtsDetailView(DetailView):
     template_name = "arts/art_detail.html"
 
 
-class ArtsCreateView(CreateView):
+class ArtsCreateView(LoginRequiredMixin, CreateView):
     template_name = 'arts/art_form.html'
     form_class = ArtsForm
 
@@ -66,19 +67,24 @@ class ArtsCreateView(CreateView):
         else:
             return render(request, self.template_name, {'form':form},)
 
+    #今ログインしているユーザーが著者であることを指すためのコード。
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)  
 
-class ArtsDeleteView(DeleteView):
+
+class ArtsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Arts
     template_name = 'arts/art_confirm_delete.html'
     form_class = ArtsForm
     success_url = '/'
 
-    #Updateと同様にログインユーザーしか削除できないようにする。
-    # def test_func(self): 
-    #     post = self.get_object()
-    #     if self.request.user == post.author:
-    #         return True
-    #     return False
+    # ログインユーザーしか削除できないようにする。
+    def test_func(self): 
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
         
 
 class CategoryView(ListView):

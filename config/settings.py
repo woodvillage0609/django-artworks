@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #own
     'django_cleanup.apps.CleanupConfig',
     'arts',
+    'account',
     'crispy_forms',
     'storages',
 ]
@@ -125,6 +126,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+LOGIN_REDIRECT_URL = 'art-home'
+LOGIN_URL = 'login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

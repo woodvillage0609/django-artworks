@@ -1,0 +1,35 @@
+{% extends 'arts/base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<br>
+
+<div class="row">
+
+    <div class="col-md-4 col-sm-0"></div>
+
+    <div class="col-md-4 col-sm-12">
+        <form method="POST" class="login-form">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="btn btn-dark">Sign up</button>
+        </form>
+        <style>
+            #hint_id_username,
+            #hint_id_password1,
+            #hint_id_password2 {
+                display:none;
+            }
+        </style>
+
+    </div>
+
+    <div class="col-md-4 col-sm-0"></div>
+
+</div>
+
+
+{% endblock %}

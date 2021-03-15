@@ -69,7 +69,7 @@ def neuralStyleTransfer(image, action):
 
 	#横の方が長い場合は1600、縦の方が長い場合は800とする。
 	if (img.shape[0] < img.shape[1]):
-		img = imutils.resize(img, width=1600)
+		img = imutils.resize(img, width=1400)
 	else:
 		img = imutils.resize(img, width=800)
 

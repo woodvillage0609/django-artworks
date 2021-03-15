@@ -62,7 +62,7 @@ li {
 /* detail.html */
 
 .art-detail {
-  text-align:center;
+  text-align:right;
 }
 
 /* form.html */
@@ -75,10 +75,11 @@ table td img{
   width:100%;
 }
 
-table th {
+table td {
+  text-align:center;
   background-color:#333;
   color:white;
-  padding:10px 0px 10px 0px;
+  padding:3px 0px 3px 0px;
   border-right:1px white solid;
 }
 
