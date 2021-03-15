@@ -23,64 +23,72 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 col-sm-12">
-                
-                <div class="nav-border-line">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="{% url 'art-home' %}">Neural Artworks</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
-                            <ul class="navbar-nav mr-auto ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'art-create' %}">アート作成 <span class="sr-only">(current)</span></a>
-                            </li>
-                            </ul>
-                            
-                        </div>
-                    </nav>
+            <div class="main">
+                <div class="col-md-12">
+                    
+                    <div class="nav-border-line">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="{% url 'art-home' %}"><i class="fas fa-infinity"></i> Neural Artworks</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarCollapse">
+                                <ul class="navbar-nav ml-auto">
+                                {% if user.is_authenticated %}
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'art-create' %}"><strong>Create Art</strong><span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'signup' %}">Sign up<span class="sr-only">(current)</span></a>
+                                </li>
+                                {% endif %}
+                                </ul>
+                                
+                            </div>
+                        </nav>
+                    </div>
+
                 </div>
 
+                <div class="col-md-12">
+                    <div class="scrollmenu">
+                            <!-- <a href="{% url 'art-home' %}">Home</a> -->
+                            <a href="{% url 'art-category' action='UDNIE' %}">Udnie</a>
+                            <a href="{% url 'art-category' action='CANDY' %}">Candy</a>
+                            <a href="{% url 'art-category' action='MOSAIC' %}">Mosaic</a>
+                            <a href="{% url 'art-category' action='PINK' %}">Pink</a>
+                            <!-- <a href="{% url 'art-category' action='SCREAM' %}">Scream</a> -->
+                            <a href="{% url 'art-category' action='LA_MUSE' %}">La Muse</a>
+                            <!-- <a href="{% url 'art-category' action='FIRE' %}">Fire</a> -->
+                            <!-- <a href="{% url 'art-category' action='FLAME' %}">Flame</a> -->
+                            <a href="{% url 'art-category' action='RAIN' %}">Rain</a>
+                            <a href="{% url 'art-category' action='LANDSCAPE' %}">Landscape</a>
+                            <!-- <a href="{% url 'art-category' action='GOLD_BLACK' %}">Gold Black</a> -->
+                            <a href="{% url 'art-category' action='TRIANGLE' %}">Triangle</a>
+                            <!-- <a href="{% url 'art-category' action='STARRY_NIGHT' %}">Starry Night</a> -->
+                            <!-- <a href="{% url 'art-category' action='STARRY_NIGHT_2500' %}">Starry Night2</a>
+                            <a href="{% url 'art-category' action='WAVE' %}">Wave</a>
+                            <a href="{% url 'art-category' action='FEATHERS' %}">Feathers</a>
+                            <a href="{% url 'art-category' action='COMPOSITION' %}">Composition</a> -->
+                    </div>
+                </div>
             </div>
         </div>
-
+         
         <div class="row">
+            
+            <div class="col-md-12" style="margin-top:110px;">
 
-            <div class="col-md-2 col-sm-12">
+                {% block content %}
 
-                <div class="scrollmenu">
-                        <a href="{% url 'art-home' %}">Home</a>
-                        <a href="{% url 'art-category' action='UDNIE' %}">Udnie</a>
-                        <a href="{% url 'art-category' action='CANDY' %}">Candy</a>
-                        <a href="{% url 'art-category' action='MOSAIC' %}">Mosaic</a>
-                        <a href="{% url 'art-category' action='PINK' %}">Pink</a>
-                        <!-- <a href="{% url 'art-category' action='SCREAM' %}">Scream</a> -->
-                        <a href="{% url 'art-category' action='LA_MUSE' %}">La Muse</a>
-                        <!-- <a href="{% url 'art-category' action='FIRE' %}">Fire</a> -->
-                        <!-- <a href="{% url 'art-category' action='FLAME' %}">Flame</a> -->
-                        <a href="{% url 'art-category' action='RAIN' %}">Rain</a>
-                        <a href="{% url 'art-category' action='LANDSCAPE' %}">Landscape</a>
-                        <a href="{% url 'art-category' action='GOLD_BLACK' %}">Gold Black</a>
-                        <a href="{% url 'art-category' action='TRIANGLE' %}">Triangle</a>
-                        <!-- <a href="{% url 'art-category' action='STARRY_NIGHT' %}">Starry Night</a> -->
-                        <!-- <a href="{% url 'art-category' action='STARRY_NIGHT_2500' %}">Starry Night2</a>
-                        <a href="{% url 'art-category' action='WAVE' %}">Wave</a>
-                        <a href="{% url 'art-category' action='FEATHERS' %}">Feathers</a>
-                        <a href="{% url 'art-category' action='COMPOSITION' %}">Composition</a> -->
-                </div>
-        
-            </div>
-
-            <div class="col-md-10 col-sm-12">
-
-            {% block content %}
-
-            {% endblock %}
-
-            </div>
-
-            <div class="col-md-0 col-sm-0">
+                {% endblock %}
 
             </div>
 

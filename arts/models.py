@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
-from .utils import get_filtered_image
 from PIL import Image
 import numpy as np
 from io import BytesIO
@@ -36,6 +36,7 @@ class Arts(models.Model):
     image = models.ImageField(upload_to='pictures/')
     action = models.CharField(max_length=50, choices=ACTION_CHOICES)
     date = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     #以下を追加。新規POST後に、どのURLに飛ばすか指定するためのもの
     def get_absolute_url(self):
@@ -58,9 +59,13 @@ class Arts(models.Model):
         im_pil = Image.fromarray(img)
         # im_pil = Image.fromarray((img * 255).astype(np.uint8))
 
+        #圧縮クオリティ
+        COMPRESS_QUALITY = 20
+
         # save
         buffer = BytesIO()
-        im_pil.save(buffer, format='png')
+        
+        im_pil.save(buffer, format='png', quality = COMPRESS_QUALITY)
         image_png = buffer.getvalue()
 
         self.image.save(str(self.image), ContentFile(image_png), save=False)

@@ -67,7 +67,12 @@ def neuralStyleTransfer(image, action):
 	# img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 	img = cv2.cvtColor(image, cv2.IMREAD_COLOR)
 
-	img = imutils.resize(img, width=1600)
+	#横の方が長い場合は1600、縦の方が長い場合は800とする。
+	if (img.shape[0] < img.shape[1]):
+		img = imutils.resize(img, width=1400)
+	else:
+		img = imutils.resize(img, width=800)
+
 	(h, w) = img.shape[:2]
 
 	# construct a blob from the image, set the input, and then perform a

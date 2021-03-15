@@ -3,38 +3,74 @@
 {% block content %}
 
 <div class="row">
-
-	<div class="col-md-2">
-
-    </div>
+	<div class="col-md-2"></div>
 
 	<div class="col-md-8">
-
 	<br>
 
 	{% load crispy_forms_tags %}
 
 		<form method="POST" enctype="multipart/form-data" action="" class="blog-form">
-
 			{% csrf_token %}
-
 			{{ form.image|as_crispy_field }}
-
 			{{ form.action|as_crispy_field }}
-
 			<br>
 						
-			<button type="submit" class="btn btn-dark">投稿</button>
-
+			<button type="submit" class="btn btn-dark">Create</button>
 		</form>
 
+		<br>
+		<br>
+
+		<div class="explanation">
+
+			<p><h5>Style Variations</h5></p>
+
+			<br>
+
+			{% load static %}
+			<table>
+				<tr>
+					<td>Candy</td>
+					<td>Udnie</td>
+				</tr>
+				<tr>
+					<td><img src="{% static 'img/IMG_1171_candy.png' %}"></td>
+					<td><img src="{% static 'img/IMG_1171_udnie.png' %}"></td>
+				</tr>
+				<tr>
+					<td>Mosaic</td>
+					<td>Pink</td>
+				</tr>
+				<tr>
+					<td><img src="{% static 'img/IMG_1171_mosaic.png' %}"></td>
+					<td><img src="{% static 'img/IMG_1171_pink.png' %}"></td>
+				</tr>
+				<tr>
+					<td>La Muse</td>
+					<td>Rain</td>
+				</tr>
+				<tr>
+					<td><img src="{% static 'img/IMG_1171_lamuse.png' %}" ></td>
+					<td><img src="{% static 'img/IMG_1171_rain.png' %}" ></td>
+				</tr>
+				<tr>
+					<td>Landscape</td>
+					<td>Triangle</td>
+				</tr>
+				<tr>
+					<td><img src="{% static 'img/IMG_1171_landscape.png' %}"></td>
+					<td><img src="{% static 'img/IMG_1171_triangle.png' %}"></td>
+				</tr>
+			</table>
+
+		</div>
+
 	</div>
 
-    <div class="col-md-2">
-
-	</div>
-
-
+    <div class="col-md-2"></div>
 </div>
+
+<br>
 
 {% endblock %}
