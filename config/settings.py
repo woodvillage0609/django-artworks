@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'account',
     'crispy_forms',
     'storages',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 #own
                  'django.template.context_processors.media',
+                 'social_django.context_processors.backends', # Google OAuth
+                 'social_django.context_processors.login_redirect', # Google OAuth
             ],
             'builtins':[ 
                'bootstrap4.templatetags.bootstrap4',
@@ -111,6 +114,17 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+#Google OAuth等によるログインのため追加。
+AUTHENTICATION_BACKENDS = (
+ 'social_core.backends.open_id.OpenIdAuth',  # for Google authentication
+#  'social_core.backends.google.GoogleOpenId',  # for Google authentication
+ 'social_core.backends.google.GoogleOAuth2',  # for Google authentication
+ 'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
+ 'social_core.backends.twitter.TwitterOAuth',
+
+ 'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Internationalization
@@ -175,6 +189,12 @@ if not DEBUG:
 
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = 'public-read'
+
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ['SOCIAL_AUTH_GOOGLE_OAUTH2_KEY']
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ['SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET']
+
+    SOCIAL_AUTH_TWITTER_KEY = os.environ['SOCIAL_AUTH_TWITTER_KEY']
+    SOCIAL_AUTH_TWITTER_SECRET = os.environ['SOCIAL_AUTH_TWITTER_SECRET']
 
     #Herokuデプロイに必要なため追加
     import django_heroku

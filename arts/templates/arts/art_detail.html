@@ -3,23 +3,34 @@
 {% block content %}
 
 <div class="row">
-<div class="col-md-1 col-sm-0"></div>
-<div class="col-md-10 col-sm-12">
-    <div class="art-detail">
-        <br>
-        <img src="{{MEDIA_URL}}{{object.image}}" style="width:100%;">
-        <br>
-        {% if request.user == object.author %}
-        <li><a href="{% url 'art-delete' object.id %}" class="grey">Delete</a></li>
-        {% endif %}
-       
-    </div>  
-</div>
+    <div class="col-md-1 col-sm-0"></div>
+   
+    <div class="col-md-10 col-sm-12">
+        <div class="art-detail">
+           <br> 
+           <img src="{{MEDIA_URL}}{{object.image}}" style="width:100%;">
+                <br>
+                {% if request.user == object.author %}
+                <li><a href="{% url 'art-delete' object.id %}" class="grey">Delete</a></li>
+                {% endif %}
+            
+        </div>  
+    </div>
 
-<div class="col-md-1 col-sm-0"></div>
+    <div class="col-md-1 col-sm-0"></div>
 
 </div>
 
 <br>
+
+
+<!-- <div class="popup is-show" id="js-popup">
+    <div class="popup-inner">
+      <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+      <a href="#"><img src="{{MEDIA_URL}}{{object.image}}"></a>
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+</div> -->
+
 
  {% endblock %}
