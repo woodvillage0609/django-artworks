@@ -56,6 +56,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #以下、Herokuのため追加。ここに追加するらしい。
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    #SNS Loginのために必要
+    'social_django.middleware.SocialAuthExceptionMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'

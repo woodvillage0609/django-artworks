@@ -20,8 +20,21 @@
 
         <br>
         <p><strong>-- OR --</strong></p>
-        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
-        <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
+       
+        <a href="{% url 'social:begin' 'google-oauth2' %}">
+            <button class="btn loginBtn-google">
+            <i class="fab fa-google"></i>  Login using Google
+            </button>
+        </a>
+    
+        <br>
+    
+        <a href="{% url 'social:begin' 'twitter' %}">
+            <div class="btn loginBtn-twitter">
+                <i class="fa fa-twitter"></i> Login using Twitter
+            </div>
+        </a>
+        <br>
 
     </div>
 

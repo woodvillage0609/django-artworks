@@ -138,6 +138,40 @@ table td {
   border-right:1px white solid;
 }
 
+/* form.html */
+.loginBtn-google {
+  border-color:grey;
+  color:grey;
+  width:100%;
+  margin-bottom:20px;
+}
+
+.loginBtn-google:hover {
+  background-color:rgb(245, 241, 241);
+  color:grey;
+}
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.loginBtn-twitter {
+  border-color:#1DA1F2;
+  background-color:#1DA1F2;
+  color:white;
+  width:100%;
+  margin-bottom:20px;
+}
+
+.loginBtn-twitter:hover {
+  opacity:0.8;
+  color:white;
+}
+
 /* タブレット向けレイアウト */
 /* ブレイクポイントをmax-width: 1000pxに指定 */
 @media(max-width:1000px) {

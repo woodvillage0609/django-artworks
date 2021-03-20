@@ -25,6 +25,27 @@
             }
         </style>
 
+        <br>
+        <p><strong>-- OR --</strong></p>
+
+        <a href="{% url 'social:begin' 'google-oauth2' %}">
+            <button class="btn loginBtn-google">
+            <i class="fab fa-google"></i>  Sign up with Google
+            </button>
+        </a>
+
+        <a href="{% url 'social:begin' 'twitter' %}">
+            <div class="btn loginBtn-twitter">
+                <i class="fa fa-twitter"></i> Sign up with Twitter
+            </div>
+        </a>
+
+        <a href="{% url 'social:begin' 'facebook' %}">
+            <div class="btn loginBtn-twitter">
+                <i class="fa fa-twitter"></i> Sign up with Facebook
+            </div>
+        </a>
+
     </div>
 
     <div class="col-md-4 col-sm-0"></div>
