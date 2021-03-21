@@ -65,6 +65,61 @@ li {
   text-align:right;
 }
 
+/* .popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: .6s;
+}
+.popup.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  max-width: 1000px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+.popup-inner img {
+  width: 100%;
+}
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.close-btn i {
+  font-size: 20px;
+  color: #333;
+}
+.black-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  z-index: 1;
+  cursor: pointer;
+} */
+
+
 /* form.html */
 .explanation {
   width:100%;
@@ -81,6 +136,53 @@ table td {
   color:white;
   padding:3px 0px 3px 0px;
   border-right:1px white solid;
+}
+
+/* form.html */
+.loginBtn-google {
+  border-color:grey;
+  color:grey;
+  width:100%;
+  margin-bottom:20px;
+}
+
+.loginBtn-google:hover {
+  background-color:rgb(245, 241, 241);
+  color:grey;
+}
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.loginBtn-twitter {
+  border-color:#1DA1F2;
+  background-color:#1DA1F2;
+  color:white;
+  width:100%;
+  margin-bottom:20px;
+}
+
+.loginBtn-twitter:hover {
+  opacity:0.8;
+  color:white;
+}
+
+.loginBtn-facebook {
+  border-color:#3B5998;
+  background-color:#3B5998;
+  color:white;
+  width:100%;
+  margin-bottom:20px;
+}
+
+.loginBtn-facebook:hover {
+  opacity:0.8;
+  color:white;
 }
 
 /* タブレット向けレイアウト */

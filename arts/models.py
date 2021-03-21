@@ -46,7 +46,7 @@ class Arts(models.Model):
         return str(self.id)
     
     def save(self, *args, **kwargs):
-        
+
         # open image
         pil_img = Image.open(self.image)
 

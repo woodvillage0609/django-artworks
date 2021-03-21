@@ -8,4 +8,5 @@ urlpatterns = [
     path('art/new/', views.ArtsCreateView.as_view(), name='art-create'), 
     path('art/category/<str:action>/', views.CategoryView.as_view(), name='art-category'),
     path('art/<int:pk>/delete/', views.ArtsDeleteView.as_view(), name = 'art-delete'), 
+    path('art/myart/', views.MyArtView.as_view(), name='art-myart'),
 ]

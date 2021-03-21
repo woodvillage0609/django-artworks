@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import (
+	DetailView,
     UpdateView,
     )
-# from .models import Account
+from arts.models import Arts
 # from .forms import AccountForm
 #UserCreationFormを使うと楽らしいので導入。
 from django.contrib.auth.forms import UserCreationForm
@@ -15,7 +16,7 @@ def signup(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('art-home')  #後でlogin機能を作ったら、ここも(‘login’)に変える方が良いらしい。
+			return redirect('login')  #"'art-home'ではなく、後でlogin機能を作ったらここも(‘login’)に変える方が良いらしい。
 	else:
 		form = UserCreationForm()
 	return render(request, 'account/signup.html', {'form': form}) #これは後でまた作成する

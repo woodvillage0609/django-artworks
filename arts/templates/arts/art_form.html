@@ -15,6 +15,9 @@
 			{{ form.image|as_crispy_field }}
 			{{ form.action|as_crispy_field }}
 			<br>
+
+			<a style="color:grey;"><strong>*File below 1MGB is recommended.</strong></a><br>
+			<a style="color:grey;"><strong>*Style Transfer will usually take 10-30 seconds.</strong></a><br><br><br>
 						
 			<button type="submit" class="btn btn-dark">Create</button>
 		</form>
@@ -31,8 +34,8 @@
 			{% load static %}
 			<table>
 				<tr>
-					<td>Candy</td>
-					<td>Udnie</td>
+					<td style="width:50%;">Candy</td>
+					<td style="width:50%;">Udnie</td>
 				</tr>
 				<tr>
 					<td><img src="{% static 'img/IMG_1171_candy.png' %}"></td>
