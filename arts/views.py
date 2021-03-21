@@ -102,3 +102,17 @@ class CategoryView(ListView):
         context = super().get_context_data(**kwargs)
         context['category_key'] = self.kwargs['action']
         return context
+
+
+class MyArtView(LoginRequiredMixin, ListView):
+    model = Arts
+    template_name = "arts/myart.html"
+    context_object_name = 'arts'
+    ordering = ['-date']
+
+    def get_context_data(self, **kwargs):
+        context = super(MyArtView, self).get_context_data(**kwargs)
+        context.update({
+            'myarts': Arts.objects.filter(author=self.request.user).order_by('-date'),
+        })
+        return context
