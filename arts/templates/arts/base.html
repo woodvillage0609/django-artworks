@@ -14,7 +14,8 @@
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 <!-- Font Awesome用の貼り付け -->
 <script src="https://kit.fontawesome.com/bed1143368.js" crossorigin="anonymous"></script>
-
+<!-- jqueryの貼り付け -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <title>Neural Artwork</title>
 
@@ -40,7 +41,10 @@
                                     <a class="nav-link" href="{% url 'art-create' %}"><strong>Create Art</strong><span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'art-myart' %}">My List<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'art-mylist' %}">My List<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'art-mylike' %}">My Like<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>

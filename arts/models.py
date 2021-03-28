@@ -73,3 +73,7 @@ class Arts(models.Model):
         super().save(*args, **kwargs)
 
 
+class Like(models.Model):
+    art = models.ForeignKey(Arts, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(default=timezone.now)

@@ -1,0 +1,18 @@
+
+<table align="right">
+    <tr>
+        <td>
+            <form action="{% url 'like' %}" method="POST">
+                {% csrf_token %}
+                {% if art.id in liked_list %}
+                    <botton id="like" name="{{art.id}}"><i class="fas fa-lg fa-heart like-red"></i></botton>
+                {% else %}
+                    <botton id="like" name="{{art.id}}"><i class="far fa-lg fa-heart"></i></botton>      
+                {% endif %}
+            </form>
+        </td>
+        <td style="padding-left:20px;">
+            <p name="{{art.id}}-count" style="color:grey;"> {{ art.like_set.count }} </p>
+        </td>
+    </tr>
+</table>
