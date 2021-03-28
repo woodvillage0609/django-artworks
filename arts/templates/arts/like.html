@@ -5,9 +5,9 @@
             <form action="{% url 'like' %}" method="POST">
                 {% csrf_token %}
                 {% if art.id in liked_list %}
-                    <botton id="like" name="{{art.id}}"><i class="fas fa-lg fa-heart like-red"></i></botton>
+                    <button id="like" name="{{art.id}}"><i class="fas fa-lg fa-heart like-red LikesIcon-fa-heart"></i></button>
                 {% else %}
-                    <botton id="like" name="{{art.id}}"><i class="far fa-lg fa-heart"></i></botton>      
+                    <button id="like" name="{{art.id}}"><i class="far fa-lg fa-heart LikesIcon-fa-heart"></i></button>      
                 {% endif %}
             </form>
         </td>

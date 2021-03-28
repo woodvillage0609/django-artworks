@@ -12,6 +12,15 @@ li {
   color:grey;
 }
 
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 3;
+  appearance: none;
+}
+
 /* base.html */
 .nav-border-line {
   background-color:white;
@@ -44,6 +53,37 @@ li {
     background-color: #777;
   }
 
+/* --- ハートアニメーション --- */
+
+@keyframes heartAnimation {
+  0% {
+    /* アイコンサイズをもとのより小さくする */
+    transform: scale(0.5);
+  }
+  10% {
+    transform: scale(0.7);
+  }
+  30% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+    /* もとのサイズに戻す */
+    transform: scale(1.0);
+  }
+}
+
+.LikesIcon-fa-heart.heart{
+  /* heartAnimationアニメーションを300ミリ秒かけて実行する */
+  animation: heartAnimation .3s;
+  
+}
+
 /* home.html */
 .card-columns {
     column-count: 3;
@@ -60,7 +100,7 @@ li {
 }
 
 .card-text {
-  padding-top:5px;
+  padding-top:10px;
 }
 
 .fa-heart {
