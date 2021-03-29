@@ -8,5 +8,10 @@ urlpatterns = [
     path('art/new/', views.ArtsCreateView.as_view(), name='art-create'), 
     path('art/category/<str:action>/', views.CategoryView.as_view(), name='art-category'),
     path('art/<int:pk>/delete/', views.ArtsDeleteView.as_view(), name = 'art-delete'), 
-    path('art/myart/', views.MyArtView.as_view(), name='art-myart'),
+    # 自分の投稿一覧を拾う
+    path('art/mylist/', views.MyArtView.as_view(), name='art-mylist'),
+    #いいね機能のため追加
+    path('art/like', views.LikeView, name='like'),
+    #いいねした投稿一覧を拾う
+    path('art/mylike/', views.MyLikeView.as_view(), name='art-mylike'),
 ]

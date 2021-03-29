@@ -14,9 +14,19 @@
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 <!-- Font Awesome用の貼り付け -->
 <script src="https://kit.fontawesome.com/bed1143368.js" crossorigin="anonymous"></script>
+<!-- jqueryの貼り付け -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RX5B16TVX7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-RX5B16TVX7');
+</script>
 
-<title>Neural Artwork</title>
+<title>Neural Artworks</title>
 
 </head>
 
@@ -40,7 +50,10 @@
                                     <a class="nav-link" href="{% url 'art-create' %}"><strong>Create Art</strong><span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'art-myart' %}">My List<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'art-mylist' %}">My List<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'art-mylike' %}">My Like<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>
@@ -99,6 +112,34 @@
         </div>
 
     </div>
+
+    <!-- いいね機能 -->
+    <script type="text/javascript">
+        $(document).ready(function(event){
+            $(document).on('click', '#like', function(event){
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: "{% url 'like' %}",
+                    data: {
+                        'art_id': $(this).attr('name'),
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    dataType: 'json',
+                    success: function(response){
+                        selector = document.getElementsByName(response.art_id);
+                        if(response.liked){
+                            $(selector).html("<i class='fas fa-lg fa-heart LikesIcon-fa-heart heart'></i>");
+                        }
+                        else {
+                            $(selector).html("<i class='far fa-lg fa-heart LikesIcon-fa-heart'></i>");
+                        }
+                        selector2 = document.getElementsByName(response.art_id + "-count");
+                        $(selector2).text(response.count);
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </body>

@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 #own
 from django.conf import settings
 import neuralStyleProcess
 from django.urls import reverse
+from django.http import JsonResponse
 
 import cv2
 
@@ -13,7 +14,7 @@ from django.views.generic import (
     CreateView,
     DeleteView,
     )
-from .models import Arts
+from .models import Arts, Like, User
 from .forms import ArtsForm
 #ログインしていないと、create/update/deleteできない様にする
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -26,34 +27,60 @@ class ArtsListView(ListView):
     ordering = ['-date']
 
     def get_context_data(self, **kwargs):
+        
+        #ユーザーがいいねした記事一覧を拾うために記載
+        arts = Arts.objects.all()
+        liked_list = []
+        for art in arts:
+            #ログインしている場合
+            if self.request.user.is_active:
+                liked = art.like_set.filter(user=self.request.user)
+            #ログインしていない場合はこうしないとエラーが出る。
+            else:
+                liked = art.like_set.none()
+
+            if liked.exists():
+                liked_list.append(art.id)
+
         context = super(ArtsListView, self).get_context_data(**kwargs)
         context.update({
             'arts': Arts.objects.all().order_by('?'),
+            #（参考）Action別にフィルターをかけたい場合の方法
             'arts_udnie': Arts.objects.filter(action='UDNIE').order_by('-date'),
-            'arts_candy': Arts.objects.filter(action='CANDY').order_by('-date'),
-            'arts_mosaic': Arts.objects.filter(action='MOSAIC').order_by('-date'),
-            'arts_pink': Arts.objects.filter(action='PINK').order_by('-date'),
-            'arts_scream': Arts.objects.filter(action='SCREAM').order_by('-date'),
-            'arts_lamuse': Arts.objects.filter(action='LA_MUSE').order_by('-date'),
-            'arts_fire': Arts.objects.filter(action='FIRE').order_by('-date'),
-            'arts_flame': Arts.objects.filter(action='FLAME').order_by('-date'),
-            'arts_rain': Arts.objects.filter(action='RAIN').order_by('-date'),
-            'arts_landscape': Arts.objects.filter(action='LANDSCAPE').order_by('-date'),
-            'arts_goldblack': Arts.objects.filter(action='GOLD_BLACK').order_by('-date'),
-            'arts_triangle': Arts.objects.filter(action='TRIANGLE').order_by('-date'),
-            'arts_starrynight': Arts.objects.filter(action='STARRY_NIGHT').order_by('-date'),
-            'arts_starrynight2':Arts.objects.filter(action='STARRY_NIGHT_2500').order_by('-date'),
-            'arts_wave': Arts.objects.filter(action='WAVE').order_by('-date'),
-            'arts_feathers': Arts.objects.filter(action='FEATHERS').order_by('-date'),
-            'arts_compostion': Arts.objects.filter(action='COMPOSITION').order_by('-date'),
+            # いいねした一覧
+            'liked_list': liked_list,
         })
         return context
-
 
 
 class ArtsDetailView(DetailView):
     model = Arts
     template_name = "arts/art_detail.html"
+    #objectでもOK, artでも使えるようにする
+    context_object_name = 'art'
+
+    def get_context_data(self, **kwargs):
+        
+        #ユーザーがいいねした記事一覧を拾うために記載
+        arts = Arts.objects.all()
+        liked_list = []
+        for art in arts:
+            #ログインしている場合
+            if self.request.user.is_active:
+                liked = art.like_set.filter(user=self.request.user)
+            #ログインしていない場合は以下としないとエラーが出る。
+            else:
+                liked = art.like_set.none()
+
+            if liked.exists():
+                liked_list.append(art.id)
+
+        context = super(ArtsDetailView, self).get_context_data(**kwargs)
+        context.update({
+            # いいねした一覧
+            'liked_list': liked_list
+        })
+        return context
 
 
 class ArtsCreateView(LoginRequiredMixin, CreateView):
@@ -86,7 +113,7 @@ class ArtsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
         
-
+#カテゴリー別に表示
 class CategoryView(ListView):
     model = Arts
     template_name = 'arts/art_category.html'
@@ -99,20 +126,108 @@ class CategoryView(ListView):
 
     #アクセスした値を取得し辞書に格納
     def get_context_data(self, **kwargs):
+        
+        #ユーザーがいいねした記事一覧を拾うために記載
+        arts = Arts.objects.all()
+        liked_list = []
+        for art in arts:
+            #ログインしている場合
+            if self.request.user.is_active:
+                liked = art.like_set.filter(user=self.request.user)
+            #ログインしていない場合は以下としないとエラーが出る。
+            else:
+                liked = art.like_set.none()
+
+            if liked.exists():
+                liked_list.append(art.id)
+
         context = super().get_context_data(**kwargs)
-        context['category_key'] = self.kwargs['action']
+        context.update({
+            'category_key' : self.kwargs['action'],
+            # いいねした一覧
+            'liked_list': liked_list,
+        })
+        #context['category_key'] = self.kwargs['action']
         return context
 
-
+#自分の投稿を表示
 class MyArtView(LoginRequiredMixin, ListView):
     model = Arts
-    template_name = "arts/myart.html"
+    template_name = "arts/mylist.html"
     context_object_name = 'arts'
     ordering = ['-date']
 
     def get_context_data(self, **kwargs):
+        
+        # ユーザーがいいねした記事一覧を拾うために記載
+        arts = Arts.objects.all()
+        liked_list = []
+        for art in arts:
+            #ログインしている場合
+            if self.request.user.is_active:
+                liked = art.like_set.filter(user=self.request.user)
+            #ログインしていない場合は以下としないとエラーが出る。
+            else:
+                liked = art.like_set.none()
+
+            if liked.exists():
+                liked_list.append(art.id)
         context = super(MyArtView, self).get_context_data(**kwargs)
         context.update({
-            'myarts': Arts.objects.filter(author=self.request.user).order_by('-date'),
+            'mylist': Arts.objects.filter(author=self.request.user).order_by('-date'),
+            'liked_list': liked_list,
         })
         return context
+
+
+#自分がいいねした投稿を表示
+class MyLikeView(LoginRequiredMixin, ListView):
+    model = Arts
+    template_name = "arts/mylist.html"
+    context_object_name = 'arts'
+    ordering = ['-date']
+
+    def get_context_data(self, **kwargs):
+        arts = Arts.objects.all()
+        liked_list = []
+        for art in arts:
+            #ログインしている場合
+            if self.request.user.is_active:
+                liked = art.like_set.filter(user=self.request.user)
+            #ログインしていない場合は以下としないとエラーが出る。
+            else:
+                liked = art.like_set.none()
+
+            if liked.exists():
+                liked_list.append(art.id)
+
+        context = super(MyLikeView, self).get_context_data(**kwargs)
+        context.update({
+            #fileterのかけかたが特徴的なので覚えておくこと！
+            'mylist': Arts.objects.filter(like__user__in=[self.request.user]).order_by('-date'),
+            'liked_list': liked_list,
+        })
+        return context
+
+
+#いいね機能実装のため
+def LikeView(request):
+    if request.method =="POST":
+        art = get_object_or_404(Arts, pk=request.POST.get('art_id'))
+        user = request.user
+        liked = False
+        like = Like.objects.filter(art=art, user=user)
+        if like.exists():
+            like.delete()
+        else:
+            like.create(art=art, user=user)
+            liked = True
+    
+        context={
+            'art_id': art.id,
+            'liked': liked,
+            'count': art.like_set.count(),
+        }
+
+    if request.is_ajax():
+        return JsonResponse(context)

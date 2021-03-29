@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Arts
+from .models import Arts, Like
 # Register your models here.
 
 class ArtsAdmin(admin.ModelAdmin):
@@ -13,3 +13,4 @@ class ArtsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Arts, ArtsAdmin)
+admin.site.register(Like)

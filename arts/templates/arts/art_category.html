@@ -6,6 +6,11 @@
   {% for art in arts %}
   <div class="card">
       <a href="{% url 'art-detail' art.id %}"><img class="card-img-top img-fluid" src="{{MEDIA_URL}}{{art.image}}"  style="width:100%;" alt="Card image cap"></a>
+      
+      <div class="card-text">
+        {% include 'arts/like.html' %}
+      </div>
+  
   </div>
   {% endfor %}
 </div>
