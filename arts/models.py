@@ -16,7 +16,7 @@ ACTION_CHOICES = (
     ('CANDY', 'Candy'),
     ('MOSAIC', 'Mosaic'),
     ('PINK', 'Pink'),
-    # ('SCREAM', 'Scream'),
+    ('SCREAM', 'Scream'),
     ('LA_MUSE', 'La Muse'),
     # ('FIRE', 'Fire'),
     # ('FLAME', 'Flame'),

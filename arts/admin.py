@@ -12,5 +12,9 @@ class ArtsAdmin(admin.ModelAdmin):
         return mark_safe('<img src="{}" style="width:200px; height:auto;">'.format(obj.image.url))
 
 
+class LikeAdmin(admin.ModelAdmin):
+    list_display = ('user', 'art')
+
+
 admin.site.register(Arts, ArtsAdmin)
-admin.site.register(Like)
+admin.site.register(Like, LikeAdmin)
