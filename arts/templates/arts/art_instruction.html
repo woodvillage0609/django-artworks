@@ -2,173 +2,174 @@
 
 {% block content %}
 
+{% load static %}
+
 <div class="row">
 
     <div class="col-md-3"></div>
+
     <div class="col-md-6">
 
-    {% load static %}
-
-    <br>
-    
-    <div style="width:100%;color:rgba(53, 51, 51, 0.918);">
+        <br>
         
-        <li style="text-align:center;">
-            <h4><strong>What is this web site?</strong></h4>
-        </li>
+        <div style="width:100%;color:rgba(53, 51, 51, 0.918);">
+            
+            <li style="text-align:center;">
+                <h4><strong>What is this web site?</strong></h4>
+            </li>
 
-        <ul>
+            <ul>
+                <br>
+                <li style="list-style-type:disc;">
+                    This web site is <strong>free style transfer</strong> of your own photo or picture to create your own Neural Art.
+                </li>
+                <br>
+                <li style="text-align:center;text-indent:-1em;">
+                    <img src="{% static 'img/eiffel.jpeg' %}" style="width:50%;">
+                </li>
+                <br>
+                <li style="text-align:center;text-indent:-0.6em;">
+                    <i class="fas fa-arrow-down" style="font-size:25px;color:rgba(53, 51, 51, 0.918);"></i>
+                </li>
+                <br>
+                <li style="text-align:center;text-indent:-1em;">
+                    <img src="{% static 'img/eiffel_mosaic.png' %}" style="width:50%;">
+                </li>
+            </ul>
+        </div>
+
+        <br><br>
+
+        <div style="width:100%;text-align:center;color:rgba(53, 51, 51, 0.918)">
+            <h4><strong>How to use?</strong></h4>
+        </div>
+
+        <br>
+
+        <ul class="check">
+            <li class="check">
+                <h4 style="color:rgba(53, 51, 51, 0.918);"><strong>Step 1</strong></h4>
+            </li>
             <br>
             <li style="list-style-type:disc;">
-                This web site is <strong>free style transfer</strong> of your own photo or picture to create your own Neural Art.
+                <a>You will need to quickly <strong>sign up</strong> and <strong>create our own account</strong>.</a>
             </li>
             <br>
-            <li style="text-align:center;text-indent:-1em;">
-                <img src="{% static 'img/eiffel.jpeg' %}" style="width:50%;">
+            <li>
+                <img src="{% static 'img/signup_1.PNG' %}" style="width:90%;">
             </li>
             <br>
-            <li style="text-align:center;text-indent:-0.6em;">
-                <i class="fas fa-arrow-down" style="font-size:25px;color:rgba(53, 51, 51, 0.918);"></i>
+            <li style="list-style-type:disc;">
+                <a>You can sign up using <strong>Google</strong> or <strong>Facebook</strong> account.</a>
             </li>
             <br>
-            <li style="text-align:center;text-indent:-1em;">
-                <img src="{% static 'img/eiffel_mosaic.png' %}" style="width:50%;">
+            <li>
+                <img src="{% static 'img/signup_2.jpeg' %}" style="width:90%;">
             </li>
         </ul>
+
+        <br>
+        <ul class="check">
+            <li class="check">
+                <h4 style="color:rgba(53, 51, 51, 0.918);"><strong>Step 2</strong></h4>
+            </li>
+            <br>
+            <li style="list-style-type:disc;">
+                <a>Once signed up, "<strong>Create Art</strong>" icon will show up on the bar top.</a>
+            </li>
+            <br>
+            <li>
+                <img src="{% static 'img/create_art_1.png' %}" style="width:90%;">
+            </li>
+            <br>
+            <li style="list-style-type:disc;">
+                <a>You can choose the image from your device for the style transfer.</a>
+            </li>
+            <br>
+            <li>
+                <img src="{% static 'img/create_art_2.png' %}" style="width:90%;">    
+            </li>
+            <br>
+            <li style="list-style-type:disc;">
+                <a>There are <strong>9 style transfer models(actions)</strong> that you can choose from.</a>
+            </li>
+            <br>
+            <li style="width:100%;text-align:center;">
+                <img src="{% static 'img/create_art_3.png' %}" style="width:60%;"> 
+            </li>
+        </ul>
+
+        <br>
+        <ul class="check">
+            <li class="check">
+                <h4 style="color:rgba(53, 51, 51, 0.918);"><strong>Style Variations</strong></h4>
+            </li>
+            <br>
+            <li style="list-style-type:disc;">
+                <a>Below are the examples of results from using each of style transfer models.</a>
+            </li>
+        </ul>
+
+            <div class="card-columns-1">
+
+                <div class="card">
+                    <div class="card-text"><a>Original</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel.jpeg' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Udnie</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_udnie.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Candy</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_candy.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Mosaic</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_mosaic.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Pink</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_pink.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Scream</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_scream.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>La Muse</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_lamuse.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Rain</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_rain.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Landscape</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_landscape.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-text"><a>Triangle</a></div>
+                    <img class="card-img-top img-fluid" src="{% static 'img/eiffel_triangle.png' %}" style="width:100%;" alt="Card image cap">
+                </div>
+
+            </div>
+
+        <br><br>
+
+        <ul class="check" style="width:100%;color:rgba(53, 51, 51, 0.918)">
+            <li class="check">
+                <h4><strong>Just Enjoy !!</strong></h4>
+            </li>
+            <br>
+            <li style="list-style-type:disc;">
+                <a>Just to remind that you can also hit the button to like any arts and save them in your "<strong>My Like</strong>".</a>
+            </li>
+        </ul>
+
+        <br><br>
+
     </div>
-
-    <br><br>
-
-    <div style="width:100%;text-align:center;color:rgba(53, 51, 51, 0.918)">
-        <h4><strong>How to use?</strong></h4>
-    </div>
-
-    <br>
-
-    <ul class="check">
-        <li class="check">
-            <h4 style="color:rgba(53, 51, 51, 0.918);"><strong>Step 1</strong></h4>
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>You will need to quickly <strong>sign up</strong> and <strong>create our own account</strong>.</a>
-        </li>
-        <br>
-        <li>
-            <img src="{% static 'img/signup_1.png' %}" style="width:90%;">
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>You can sign up using <strong>Google</strong> or <strong>Facebook</strong> account.</a>
-        </li>
-        <br>
-        <li>
-            <img src="{% static 'img/signup_2.jpeg' %}" style="width:90%;">
-        </li>
-    </ul>
-
-    <br>
-    <ul class="check">
-        <li class="check">
-            <h4 style="color:rgba(53, 51, 51, 0.918);"><strong>Step 2</strong></h4>
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>Once signed up, "<strong>Create Art</strong>" icon will show up on the bar top.</a>
-        </li>
-        <br>
-        <li>
-            <img src="{% static 'img/create_art_1.png'%}" style="width:90%;">
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>You can choose the image from your device for the style transfer.</a>
-        </li>
-        <br>
-        <li>
-            <img src="{% static 'img/create_art_2.png'%}" style="width:90%;">    
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>There are <strong>9 style transfer models(actions)</strong> that you can choose from.</a>
-        </li>
-        <br>
-        <li style="width:100%;text-align:center;">
-            <img src="{% static 'img/create_art_3.png'%}" style="width:60%;"> 
-        </li>
-    </ul>
-
-    <br>
-    <ul class="check">
-        <li class="check">
-            <h4 style="color:rgba(53, 51, 51, 0.918);"><strong>Style Variations</strong></h4>
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>Below are the examples of results from using each of style transfer models.</a>
-        </li>
-    </ul>
-
-		<div class="card-columns-1">
-
-			<div class="card">
-				<div class="card-text"><a>Original</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel.jpeg' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Udnie</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_udnie.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Candy</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_candy.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Mosaic</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_mosaic.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Pink</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_pink.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Scream</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_scream.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>La Muse</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_lamuse.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Rain</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_rain.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Landscape</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_landscape.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-			<div class="card">
-				<div class="card-text"><a>Triangle</a></div>
-				<img class="card-img-top img-fluid" src="{% static 'img/eiffel_triangle.png' %}" style="width:100%;" alt="Card image cap">
-			</div>
-
-		</div>
-
-    <br><br>
-
-    <ul class="check" style="width:100%;color:rgba(53, 51, 51, 0.918)">
-        <li class="check">
-            <h4><strong>Just Enjoy !!</strong></h4>
-        </li>
-        <br>
-        <li style="list-style-type:disc;">
-            <a>Just to remind that you can also hit the button to like any arts and save them in your "<strong>My Like</strong>".</a>
-        </li>
-    </ul>
-
-    <br><br>
-
-</div>
 
     <div class="col-md-3"></div>
 

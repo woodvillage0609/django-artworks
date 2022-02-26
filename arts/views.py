@@ -237,7 +237,7 @@ class ArtsHowToUseView(ListView):
     model = Arts
     template_name = "arts/art_instruction.html"
     #objectでもOK, artでも使えるようにする
-    context_object_name = 'art'
+    context_object_name = 'arts'
 
     def get_context_data(self, **kwargs):
         
