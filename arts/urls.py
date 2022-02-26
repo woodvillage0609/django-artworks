@@ -14,4 +14,6 @@ urlpatterns = [
     path('art/like', views.LikeView, name='like'),
     #いいねした投稿一覧を拾う
     path('art/mylike/', views.MyLikeView.as_view(), name='art-mylike'),
+    #How to useのページ
+    path('art/instruction/', views.ArtsHowToUseView.as_view(), name='art-instruction'),
 ]

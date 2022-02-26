@@ -26,6 +26,7 @@
   gtag('config', 'G-RX5B16TVX7');
 </script>
 
+
 <title>Neural Artworks</title>
 
 </head>
@@ -50,7 +51,7 @@
                                     <a class="nav-link" href="{% url 'art-create' %}" style="color:#4285f4;"><strong>Create Art</strong><span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'art-mylist' %}">My List<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{% url 'art-mylist' %}">My Post<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'art-mylike' %}">My Like<span class="sr-only">(current)</span></a>
@@ -59,6 +60,9 @@
                                     <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>
                                 </li>
                                 {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'art-instruction' %}" style="color:#4285f4;"><strong>How to use</strong><span class="sr-only">(current)</span></a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
                                 </li>

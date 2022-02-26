@@ -231,3 +231,16 @@ def LikeView(request):
 
     if request.is_ajax():
         return JsonResponse(context)
+
+#How To Useページ追加
+class ArtsHowToUseView(ListView):
+    model = Arts
+    template_name = "arts/art_instruction.html"
+    #objectでもOK, artでも使えるようにする
+    context_object_name = 'art'
+
+    def get_context_data(self, **kwargs):
+        
+        context = super(ArtsHowToUseView, self).get_context_data(**kwargs)
+        
+        return context
